@@ -6,25 +6,21 @@ import Ground from "../components/Ground";
 
 import Avatar from "../components/Avatar";
 
-import CameraController from "../components/CameraController";
+import { AvatarProvider } from "../context/AvatarContext";
+import AvatarController from "../hooks/avatarController";
 
 export default function MarketplacePage() {
   return (
-    <Canvas
-      camera={{
-        position: [0, 6, 8],
-        fov: 60,
-      }}
-    >
-      <ambientLight
-        intensity={1}
-      />
+    <AvatarProvider>
+      <Canvas>
+        <ambientLight />
 
-      <Ground />
+        <Ground />
 
-      <Avatar />
+        <Avatar />
 
-      <CameraController />
-    </Canvas>
+        <AvatarController />
+      </Canvas>
+    </AvatarProvider>
   );
 }

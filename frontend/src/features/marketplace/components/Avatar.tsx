@@ -1,32 +1,15 @@
-import { useRef } from "react";
-
-import * as THREE from "three";
-
 import {
-  useAvatarStore,
-} from "../stores/avatarStore";
-
-import useAvatarMovement from "../hooks/useAvatarMovement";
+  useAvatarContext,
+} from "../context/AvatarContext";
 
 export default function Avatar() {
-  useAvatarMovement();
-
-  const meshRef =
-    useRef<THREE.Mesh>(null);
-
-  const position =
-    useAvatarStore(
-      (state) => state.position
-    );
+  const { avatarRef } =
+    useAvatarContext();
 
   return (
     <mesh
-      ref={meshRef}
-      position={[
-        position.x,
-        position.y,
-        position.z,
-      ]}
+      ref={avatarRef}
+      position={[0, 0.5, 0]}
     >
       <boxGeometry
         args={[1, 1, 1]}
