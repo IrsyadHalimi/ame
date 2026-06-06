@@ -13,6 +13,7 @@ import RoleRoute from "@/routes/RoleRoute";
 import CustomerDashboard from "@/pages/customer/CustomerDashboard";
 import SellerDashboard from "@/pages/seller/SellerDashboard";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
+import MarketplacePage from "@/features/marketplace/pages/MarketplacePage";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "/marketplace",
+        element: <MarketplacePage />
       },
       {
         element: <ProtectedRoute />,
