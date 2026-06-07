@@ -1,25 +1,12 @@
-import { Interactable } from "../types/interactable.type";
+import { booths } from "../booths/data/booths";
 
-export const interactables: Interactable[] = [
-  {
-    id: "seller-booth-1",
-    type: "seller-booth",
-    radius: 5,
-    position: {
-      x: 10,
-      y: 0,
-      z: 0,
-    },
-  },
+export const interactables =
+  booths.map((booth: any) => ({
+    id: booth.id,
 
-  {
-    id: "seller-booth-2",
     type: "seller-booth",
+
     radius: 5,
-    position: {
-      x: -10,
-      y: 0,
-      z: 0,
-    },
-  },
-];
+
+    position: booth.position,
+  }));

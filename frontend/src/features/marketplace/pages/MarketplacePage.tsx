@@ -13,6 +13,7 @@ import InteractionDetector from "../components/Detector";
 import CameraRig from "../components/CameraRigs";
 import SellerBooth from "../components/interactables/SellerBooth";
 import InteractionManager from "../components/InteractionManager";
+import BoothManager from "../booths/BoothManager";
 
 export default function MarketplacePage() {
   return (
@@ -25,13 +26,7 @@ export default function MarketplacePage() {
 
         <Avatar />
 
-        <SellerBooth
-          position={[10, 1.5, 0]}
-        />
-
-        <SellerBooth
-          position={[-10, 1.5, 0]}
-        />
+        <BoothManager />
 
         <AvatarController />
 
@@ -42,8 +37,6 @@ export default function MarketplacePage() {
         <InteractionManager />
 
       </Canvas>
-
-      <InteractionPrompt />
 
     </AvatarProvider>
   );

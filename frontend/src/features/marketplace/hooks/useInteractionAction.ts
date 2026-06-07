@@ -29,8 +29,7 @@ export default function useInteractionAction() {
       openOverlay(
         "product",
         {
-          boothId:
-            activeObjectId,
+          boothId: activeObjectId,
         }
       );
     };

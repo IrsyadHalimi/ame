@@ -8,15 +8,16 @@ interface Props {
   children: ReactNode;
 }
 
-const closeOverlay =
-  useOverlayStore(
-    (state) =>
-      state.closeOverlay
-  );
-
 export default function OverlayContainer({
   children,
 }: Props) {
+  
+  const closeOverlay =
+    useOverlayStore(
+      (state) =>
+        state.closeOverlay
+    );
+
   return (
     <div
       className="

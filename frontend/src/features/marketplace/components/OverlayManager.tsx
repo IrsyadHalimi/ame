@@ -15,10 +15,9 @@ export default function OverlayManager() {
         state.activeOverlay
     );
 
-  console.log("Active Overlay:", activeOverlay);
-
   if (!activeOverlay)
     return null;
+
 
   return (
     <OverlayContainer>

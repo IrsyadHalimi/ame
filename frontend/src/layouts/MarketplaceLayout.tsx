@@ -6,11 +6,13 @@ import InteractionPrompt from "@/features/marketplace/components/InteractionProm
 import OverlayManager from "@/features/marketplace/components/OverlayManager";
 import HUD from "@/features/marketplace/hud/HUD";
 
-export default function MainLayout() {
+export default function MarketplaceLayout() {
   return (
     <div className="relative h-screen">
       <Outlet />
       <HUD />
+      <InteractionPrompt />
+      <OverlayManager />
     </div>
   );
 }
