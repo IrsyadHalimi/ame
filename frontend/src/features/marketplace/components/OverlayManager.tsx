@@ -7,6 +7,8 @@ from "../overlays/ProductOverlay";
 import {
   useOverlayStore,
 } from "../stores/overlayStore";
+import CartOverlay from "../overlays/CartOverlay";
+import CheckoutOverlay from "../overlays/CheckoutOverlay";
 
 export default function OverlayManager() {
   const activeOverlay =
@@ -24,6 +26,13 @@ export default function OverlayManager() {
       {activeOverlay ===
         "product" && (
         <ProductOverlay />
+      )}
+      {activeOverlay ===
+        "cart" && (
+        <CartOverlay />
+      )}
+      {activeOverlay === "checkout" && (
+        <CheckoutOverlay />
       )}
     </OverlayContainer>
   );

@@ -1,13 +1,36 @@
+import ProductList
+from "@/features/product/components/ProductList";
+
+import {
+  useOverlayStore,
+} from "../stores/overlayStore";
+
 export default function ProductOverlay() {
+  const payload =
+    useOverlayStore(
+      (state) =>
+        state.payload
+    ) as {
+      sellerId: string;
+    };
+
   return (
-    <div>
-      <h2 className="text-xl font-bold">
+    <div className="p-4">
+      <h2
+        className="
+        mb-4
+        text-xl
+        font-bold
+        "
+      >
         Produk Seller
       </h2>
 
-      <p>
-        Daftar produk akan muncul di sini
-      </p>
+      <ProductList
+        sellerId={
+          payload.sellerId
+        }
+      />
     </div>
   );
 }

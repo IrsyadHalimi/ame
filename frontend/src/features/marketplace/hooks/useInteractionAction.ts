@@ -4,6 +4,7 @@ import {
   useInteractionStore,
 } from "../stores/interactionStore";
 import { useOverlayStore } from "../stores/overlayStore";
+import { boothMap } from "../registry/interactables";
 
 export default function useInteractionAction() {
   const activeObjectId =
@@ -22,14 +23,20 @@ export default function useInteractionAction() {
     ) => {
       if (event.code !== "KeyE")
         return;
-
+  
       if (!activeObjectId)
         return;
+
+      const booth =
+      boothMap.get(
+        activeObjectId
+      );
 
       openOverlay(
         "product",
         {
-          boothId: activeObjectId,
+          sellerId:
+            booth?.sellerId,
         }
       );
     };

@@ -10,3 +10,11 @@ export const interactables =
 
     position: booth.position,
   }));
+
+export const boothMap =
+  new Map(
+    booths.map((booth) => [
+      booth.id,
+      booth,
+    ])
+  );

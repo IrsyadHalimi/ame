@@ -3,8 +3,15 @@ import {
   MessageCircle,
   Map,
 } from "lucide-react";
+import { useOverlayStore } from "../stores/overlayStore";
 
 export default function BottomHUD() {
+  const openOverlay =
+  useOverlayStore(
+    (state) =>
+      state.openOverlay
+  );
+  
   return (
     <div
       className="
@@ -28,7 +35,11 @@ export default function BottomHUD() {
         backdrop-blur
         "
       >
-        <button>
+        <button
+          onClick={() =>
+            openOverlay("cart")
+          }
+        >
           <ShoppingCart />
         </button>
 
@@ -39,6 +50,7 @@ export default function BottomHUD() {
         <button>
           <Map />
         </button>
+        
       </div>
     </div>
   );
