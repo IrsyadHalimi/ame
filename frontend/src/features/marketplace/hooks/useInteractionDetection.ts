@@ -1,5 +1,9 @@
 import { useFrame } from "@react-three/fiber";
 
+import { interactables } from "../registry/interactables";
+
+import { distance } from "@/lib/distance";
+
 import {
   useAvatarContext,
 } from "../context/AvatarContext";
@@ -7,8 +11,6 @@ import {
 import {
   useInteractionStore,
 } from "../stores/interactionStore";
-
-import { distance } from "@/lib/distance";
 
 export default function useInteractionDetection() {
   const { avatarRef } =
@@ -24,28 +26,28 @@ export default function useInteractionDetection() {
     if (!avatarRef.current)
       return;
 
-    const boothPosition = {
-      x: 10,
-      z: 0,
-    };
-
-    const avatarPosition =
+    const avatar =
       avatarRef.current.position;
 
-    const dist = distance(
-      avatarPosition.x,
-      avatarPosition.z,
+    let nearest: string | null =
+      null;
 
-      boothPosition.x,
-      boothPosition.z
-    );
+    for (const object of interactables) {
+      const dist = distance(
+        avatar.x,
+        avatar.z,
 
-    if (dist < 5) {
-      setActiveObjectId(
-        "seller-booth-1"
+        object.position.x,
+        object.position.z
       );
-    } else {
-      setActiveObjectId(null);
+
+      if (dist <= object.radius) {
+        nearest = object.id;
+
+        break;
+      }
     }
+
+    setActiveObjectId(nearest);
   });
 }

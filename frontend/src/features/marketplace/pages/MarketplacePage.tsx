@@ -12,11 +12,12 @@ import InteractionPrompt from "../components/InteractionPrompt";
 import InteractionDetector from "../components/Detector";
 import CameraRig from "../components/CameraRigs";
 import SellerBooth from "../components/interactables/SellerBooth";
+import InteractionManager from "../components/InteractionManager";
 
 export default function MarketplacePage() {
   return (
     <AvatarProvider>
-      <Canvas>
+      <Canvas style={{ height: "100vh" }} camera={{ position: [0, 5, 10] }}>
 
         <ambientLight />
 
@@ -28,11 +29,17 @@ export default function MarketplacePage() {
           position={[10, 1.5, 0]}
         />
 
-        <CameraRig />
+        <SellerBooth
+          position={[-10, 1.5, 0]}
+        />
 
         <AvatarController />
 
+        <CameraRig />
+
         <InteractionDetector />
+
+        <InteractionManager />
 
       </Canvas>
 

@@ -3,14 +3,14 @@ import {
   Canvas,
 } from "@react-three/fiber";
 import InteractionPrompt from "@/features/marketplace/components/InteractionPrompt";
+import OverlayManager from "@/features/marketplace/components/OverlayManager";
+import HUD from "@/features/marketplace/hud/HUD";
 
-export default function MarketplaceLayout() {
+export default function MainLayout() {
   return (
     <div className="relative h-screen">
-      <Canvas>
-        <Outlet />
-      </Canvas>
-      <InteractionPrompt />
+      <Outlet />
+      <HUD />
     </div>
   );
 }

@@ -14,6 +14,7 @@ import CustomerDashboard from "@/pages/customer/CustomerDashboard";
 import SellerDashboard from "@/pages/seller/SellerDashboard";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
 import MarketplacePage from "@/features/marketplace/pages/MarketplacePage";
+import MarketplaceLayout from "@/layouts/MarketplaceLayout";
 
 export const router = createBrowserRouter([
   {
@@ -21,15 +22,20 @@ export const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
+    element: <MarketplaceLayout />,
+    children: [
+      {
+        path: "/marketplace",
+        element: <MarketplacePage />
+      },
+    ],
+  },
+  {
     element: <MainLayout />,
     children: [
       {
         path: "/",
         element: <HomePage />,
-      },
-      {
-        path: "/marketplace",
-        element: <MarketplacePage />
       },
       {
         element: <ProtectedRoute />,
