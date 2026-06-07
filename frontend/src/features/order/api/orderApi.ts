@@ -18,3 +18,14 @@ export async function createOrder(
 
   return response.data;
 }
+
+export async function getOrder(
+  orderId: string
+) {
+  const response =
+    await api.get<Order>(
+      `/orders/${orderId}`
+    );
+
+  return response.data;
+}

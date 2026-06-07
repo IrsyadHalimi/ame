@@ -1,8 +1,11 @@
 export type OrderStatus =
   | "pending"
+  | "waiting-payment"
   | "paid"
-  | "cancelled";
-
+  | "expired"
+  | "cancelled"
+  | "failed";
+  
 export interface OrderItem {
   productId: string;
 

@@ -3,10 +3,10 @@ import { create } from "zustand";
 export type OverlayType =
   | "product"
   | "cart"
-  | "chat"
   | "checkout"
+  | "payment"
   | null;
-
+  
 interface OverlayStore {
   activeOverlay: OverlayType;
 
